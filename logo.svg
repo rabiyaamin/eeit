@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="EEIT logo">
+  <polygon points="32,3 57,17.5 57,46.5 32,61 7,46.5 7,17.5" fill="#f5a623" stroke="#ffffff" stroke-width="2" stroke-linejoin="round"/>
+  <g fill="#0b1f3a">
+    <rect x="21" y="18" width="5" height="28" rx="1"/>
+    <rect x="21" y="18" width="21" height="5" rx="1"/>
+    <rect x="21" y="29.5" width="15" height="5" rx="1"/>
+    <rect x="21" y="41" width="21" height="5" rx="1"/>
+  </g>
+  <circle cx="46" cy="20.5" r="2.5" fill="#1f6feb"/>
+  <circle cx="40" cy="32" r="2.5" fill="#1f6feb"/>
+  <circle cx="46" cy="43.5" r="2.5" fill="#1f6feb"/>
+</svg>

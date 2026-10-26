@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EEIT | Empirical Engineering Institute of Technology</title>
+<link rel="icon" href="logo.png">
+<meta name="description" content="EEIT - Empirical Engineering Institute of Technology. Learning engineering through evidence, experiments and practice.">
+<style>
+  :root{
+    --navy:#0b1f3a;
+    --blue:#1f6feb;
+    --accent:#f5a623;
+    --bg:#f6f8fb;
+    --text:#1b2433;
+    --muted:#5b6679;
+    --white:#fff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.6}
+  a{color:inherit;text-decoration:none}
+  .container{width:min(1100px,92%);margin:0 auto}
+
+  header{position:sticky;top:0;z-index:10;background:var(--navy);color:var(--white);box-shadow:0 2px 10px rgba(0,0,0,.2)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.3rem;letter-spacing:1px}
+  .logo img{height:44px;width:auto;display:block;border-radius:6px}
+  .hero-logo{width:200px;max-width:70%;height:auto;margin:0 auto 22px;display:block;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+  nav ul{display:flex;gap:22px;list-style:none}
+  nav a{font-size:.95rem;opacity:.9}
+  nav a:hover{opacity:1;color:var(--accent)}
+  .menu-btn{display:none;background:none;border:0;color:#fff;font-size:1.6rem;cursor:pointer}
+
+  .hero{background:linear-gradient(135deg,var(--navy) 0%,#123a6b 60%,var(--blue) 100%);color:var(--white);padding:110px 0 100px;text-align:center}
+  .hero h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.2;margin-bottom:12px}
+  .hero h1 em{font-style:normal;color:var(--accent)}
+  .hero p{max-width:640px;margin:0 auto 30px;font-size:1.1rem;opacity:.92}
+  .btn{display:inline-block;padding:12px 28px;border-radius:8px;font-weight:600;transition:.2s}
+  .btn-primary{background:var(--accent);color:var(--navy)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.25)}
+  .btn-ghost{border:2px solid rgba(255,255,255,.7);margin-left:10px}
+  .btn-ghost:hover{background:rgba(255,255,255,.12)}
+
+  section{padding:80px 0}
+  .section-title{text-align:center;margin-bottom:46px}
+  .section-title h2{font-size:2rem;color:var(--navy)}
+  .section-title p{color:var(--muted);margin-top:8px}
+  .section-title::after{content:"";display:block;width:60px;height:4px;background:var(--accent);margin:14px auto 0;border-radius:2px}
+
+  .about-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
+  .about-grid p{color:var(--muted);margin-bottom:14px}
+  .about-box{background:var(--navy);color:#fff;padding:32px;border-radius:14px}
+  .about-box h3{color:var(--accent);margin-bottom:10px}
+  .about-box ul{list-style:none}
+  .about-box li{padding:8px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+  .about-box li:last-child{border:0}
+
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
+  .card{background:var(--white);padding:28px 24px;border-radius:14px;box-shadow:0 4px 16px rgba(11,31,58,.08);transition:.25s;border-top:4px solid var(--blue)}
+  .card:hover{transform:translateY(-6px);box-shadow:0 10px 24px rgba(11,31,58,.16)}
+  .card .icon{font-size:2rem;margin-bottom:10px}
+  .card h3{color:var(--navy);margin-bottom:6px}
+  .card p{color:var(--muted);font-size:.95rem}
+
+  .alt{background:var(--white)}
+  .why .card{border-top-color:var(--accent)}
+
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+  .contact-info p{margin-bottom:12px;color:var(--muted)}
+  .contact-info strong{color:var(--navy)}
+  form{display:flex;flex-direction:column;gap:12px}
+  input,textarea{padding:12px 14px;border:1px solid #cfd7e3;border-radius:8px;font:inherit}
+  input:focus,textarea:focus{outline:2px solid var(--blue);border-color:transparent}
+  textarea{min-height:120px;resize:vertical}
+  form button{border:0;cursor:pointer;font-size:1rem}
+
+  footer{background:var(--navy);color:#c5cee0;text-align:center;padding:26px 0;font-size:.9rem}
+  footer strong{color:var(--accent)}
+
+  @media(max-width:800px){
+    .about-grid,.contact-grid{grid-template-columns:1fr}
+    .menu-btn{display:block}
+    nav ul{display:none;position:absolute;top:100%;left:0;right:0;background:var(--navy);flex-direction:column;padding:16px 5%;gap:14px}
+    nav ul.open{display:flex}
+    .btn-ghost{margin:10px 0 0}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a href="#home" class="logo"><img src="logo.png" alt="EEIT logo" onerror="this.onerror=null;this.src='logo.svg'"><span>EEIT</span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menu">&#9776;</button>
+    <nav>
+      <ul id="menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#programs">Courses</a></li>
+        <li><a href="#why">Why EEIT</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="hero" id="home">
+  <div class="container">
+    <img src="logo.png" alt="EEIT logo" class="hero-logo" onerror="this.onerror=null;this.src='logo.svg'">
+    <h1><em>EEIT</em><br>Empirical Engineering Institute of Technology</h1>
+    <p>Learn engineering through evidence, experiments and hands-on practice. Going beyond theory to real-world skills.</p>
+    <a href="#programs" class="btn btn-primary">Explore Courses</a>
+    <a href="#contact" class="btn btn-ghost">Contact Us</a>
+  </div>
+</div>
+
+<section id="about">
+  <div class="container">
+    <div class="section-title">
+      <h2>About EEIT</h2>
+      <p>We prepare engineers who can think critically and build things that work.</p>
+    </div>
+    <div class="about-grid">
+      <div>
+        <p>The Empirical Engineering Institute of Technology (EEIT) grounds engineering education in experience, analysis and practical work. "Empirical" means learning through observation and experiment, and that is our guiding principle.</p>
+        <p>Through lab work, projects and industry-style problems, students are prepared to move from the classroom straight into meaningful work.</p>
+      </div>
+      <div class="about-box">
+        <h3>Our Mission</h3>
+        <ul>
+          <li>Practical, project-based education</li>
+          <li>Training in modern technology</li>
+          <li>Encouraging research and innovation</li>
+          <li>Career-ready graduates</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="programs" class="alt">
+  <div class="container">
+    <div class="section-title">
+      <h2>Our Courses</h2>
+      <p>Practical, skill-based courses to start your career</p>
+    </div>
+    <div class="cards">
+      <div class="card"><div class="icon">🎨</div><h3>Graphic Designing</h3><p>Learn design principles, logos, branding and social media graphics with industry tools.</p></div>
+      <div class="card"><div class="icon">🛒</div><h3>Shopify</h3><p>Build and manage an online store, from product setup to payments and sales.</p></div>
+      <div class="card"><div class="icon">📈</div><h3>Digital Marketing</h3><p>SEO, social media, ads and content strategy to grow a business online.</p></div>
+      <div class="card"><div class="icon">🗂️</div><h3>Office Automation</h3><p>Master Word, Excel, PowerPoint and other tools to work faster and smarter.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="why" class="why">
+  <div class="container">
+    <div class="section-title">
+      <h2>Why EEIT?</h2>
+      <p>What sets us apart</p>
+    </div>
+    <div class="cards">
+      <div class="card"><div class="icon">🔬</div><h3>Hands-on Labs</h3><p>Understand every topic through experiments.</p></div>
+      <div class="card"><div class="icon">🧑‍🏫</div><h3>Experienced Faculty</h3><p>Guidance from dedicated and experienced instructors.</p></div>
+      <div class="card"><div class="icon">🚀</div><h3>Real Projects</h3><p>Opportunities to work on industry-style projects.</p></div>
+      <div class="card"><div class="icon">🎯</div><h3>Career Focus</h3><p>Skills that matter in the job market.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="alt">
+  <div class="container">
+    <div class="section-title">
+      <h2>Contact</h2>
+      <p>Get in touch for admissions or any other information</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p><strong>Institute:</strong> Empirical Engineering Institute of Technology (EEIT)</p>
+        <p><strong>Email:</strong> info@eeit.example</p>
+        <p><strong>Phone:</strong> +92 XXX XXXXXXX</p>
+        <p><strong>Address:</strong> Add your address here</p>
+      </div>
+      <form action="mailto:info@eeit.example" method="post" enctype="text/plain">
+        <input type="text" name="name" placeholder="Your name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <textarea name="message" placeholder="Your message" required></textarea>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    &copy; <span id="year"></span> <strong>EEIT</strong> - Empirical Engineering Institute of Technology. All rights reserved.
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  var btn = document.getElementById('menuBtn'), menu = document.getElementById('menu');
+  btn.addEventListener('click', function(){ menu.classList.toggle('open'); });
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ menu.classList.remove('open'); });
+  });
+</script>
+</body>
+</html>
