@@ -48,6 +48,7 @@ td{font-weight:700}
 tr.total th,tr.total td{border-bottom:0;background:#fff7e6;font-size:1.05rem}
 .note{color:var(--muted);font-size:.88rem;margin-top:12px}
 .demo{border-left:5px solid var(--blue)}
+.online{border-left:5px solid var(--wa)}
 .demo dl{display:grid;grid-template-columns:150px 1fr;gap:8px 14px;margin-bottom:20px}
 .demo dt{color:var(--navy);font-weight:600}
 .demo dd{color:var(--muted)}
