@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admission Form | EEIT</title>
+<link rel="icon" href="logo.png" type="image/png">
+<style>
+  :root{--navy:#0b1f3a;--blue:#1f6feb;--accent:#f5a623;--muted:#5b6679;--wa:#25d366}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;color:#1b2433;background:#eef2f8;line-height:1.55;padding:24px 12px}
+  a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+  .back{width:min(820px,100%);margin:0 auto 14px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:.92rem}
+  .back a{color:var(--blue);font-weight:600}
+  .sheet{width:min(820px,100%);margin:0 auto;background:#fff;padding:40px;border-radius:12px;box-shadow:0 4px 16px rgba(11,31,58,.1)}
+  .head{display:flex;align-items:center;gap:16px;border-bottom:3px solid var(--navy);padding-bottom:14px;margin-bottom:22px}
+  .head img{height:70px;width:auto;border-radius:6px}
+  .head h1{font-size:1.25rem;color:var(--navy);line-height:1.25}
+  .head p{color:var(--muted);font-size:.85rem}
+  h2{text-align:center;font-size:1.2rem;margin-bottom:6px;color:var(--navy)}
+  .sub{text-align:center;color:var(--muted);font-size:.92rem;margin-bottom:22px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px}
+  .full{grid-column:1/-1}
+  label{display:block;font-size:.86rem;font-weight:600;color:var(--navy);margin-bottom:4px}
+  label .req{color:#c0392b}
+  input[type=text],input[type=tel],input[type=email],input[type=date],select,textarea{width:100%;padding:11px 12px;border:1px solid #b9c3d3;border-radius:8px;font:inherit;background:#fff}
+  textarea{min-height:80px;resize:vertical}
+  .radios{display:flex;gap:18px;flex-wrap:wrap;padding-top:6px}
+  .radios label{font-weight:500;color:#1b2433;display:flex;align-items:center;gap:6px;margin:0}
+  .feebox{background:#fff7e6;border:1px solid var(--accent);border-radius:8px;padding:10px 14px;font-weight:600;color:var(--navy)}
+  .agree{display:flex;gap:10px;align-items:flex-start;font-weight:500;color:var(--muted);font-size:.9rem}
+  .agree input{margin-top:5px}
+  .hp{position:absolute;left:-9999px;opacity:0;height:0;width:0}
+  .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+  .btn{display:inline-block;padding:13px 28px;border-radius:8px;font-weight:700;border:0;cursor:pointer;font-size:1rem;background:var(--accent);color:var(--navy);transition:.2s}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.2)}
+  .btn:disabled{opacity:.6;cursor:wait;transform:none;box-shadow:none}
+  .btn-outline{background:transparent;border:2px solid var(--blue);color:var(--blue)}
+  .btn-outline:hover{background:var(--blue);color:#fff}
+  .btn-wa{background:var(--wa);color:#05361a}
+  .msg{display:none;margin-top:18px;padding:16px 18px;border-radius:10px;font-weight:600}
+  .msg.ok{display:block;background:#e7f8ee;border:1px solid #38b26a;color:#14532d}
+  .msg.err{display:block;background:#fdecea;border:1px solid #e0685c;color:#7a1f16}
+  .msg a{text-decoration:underline}
+  .office{margin-top:26px;border:1px solid #cfd7e3;border-radius:8px;padding:12px 14px;font-size:.85rem;color:var(--muted);display:none}
+  @media(max-width:640px){.sheet{padding:22px}.grid{grid-template-columns:1fr}}
+  @media print{
+    body{background:#fff;padding:0}
+    .back,.actions,.msg{display:none!important}
+    .sheet{box-shadow:none;border-radius:0;width:100%;padding:0}
+    .office{display:block}
+    input,select,textarea{border:0;border-bottom:1.5px solid #8a95a8;border-radius:0;padding:4px 0}
+    @page{margin:16mm}
+  }
+</style>
+</head>
+<body>
+
+<div class="back">
+  <a href="index.html">&larr; Back to EEIT website</a>
+  <a href="index.html#courses">View courses</a>
+</div>
+
+<div class="sheet">
+  <div class="head">
+    <img src="logo.png" alt="EEIT logo">
+    <div>
+      <h1>Empirical Engineering Institute of Technology (EEIT)</h1>
+      <p>+92 330 2673007 &nbsp;|&nbsp; eeinstituteoftechnology@gmail.com</p>
+    </div>
+  </div>
+
+  <h2>Online Admission Form</h2>
+  <p class="sub">Fill in the form and press Submit. Our team will contact you on WhatsApp.</p>
+
+  <form id="admForm" novalidate>
+    <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <div class="grid">
+      <div class="full">
+        <label for="course">Course <span class="req">*</span></label>
+        <select id="course" name="course" required>
+          <option value="">Select a course</option>
+          <option value="Graphic Designing" data-fee="Rs. 8,000">Graphic Designing</option>
+          <option value="Shopify" data-fee="Rs. 5,000">Shopify</option>
+          <option value="Digital Marketing" data-fee="Rs. 10,000">Digital Marketing</option>
+          <option value="Office Automation" data-fee="Rs. 5,000">Office Automation</option>
+        </select>
+      </div>
+      <div class="feebox full" id="feebox" hidden></div>
+
+      <div class="full">
+        <label>Class mode <span class="req">*</span></label>
+        <div class="radios">
+          <label><input type="radio" name="mode" value="On-campus" required> On-campus</label>
+          <label><input type="radio" name="mode" value="Online"> Online</label>
+        </div>
+      </div>
+
+      <div><label for="name">Full name <span class="req">*</span></label><input type="text" id="name" name="name" required autocomplete="name"></div>
+      <div><label for="guardian">Father / Guardian name <span class="req">*</span></label><input type="text" id="guardian" name="guardian" required></div>
+      <div><label for="dob">Date of birth</label><input type="date" id="dob" name="dob"></div>
+      <div><label for="cnic">CNIC / B-Form no.</label><input type="text" id="cnic" name="cnic" inputmode="numeric" placeholder="XXXXX-XXXXXXX-X"></div>
+      <div><label for="phone">Phone / WhatsApp <span class="req">*</span></label><input type="tel" id="phone" name="phone" required autocomplete="tel" placeholder="03XX XXXXXXX"></div>
+      <div><label for="email">Email</label><input type="email" id="email" name="email" autocomplete="email"></div>
+      <div class="full"><label for="address">Address / City <span class="req">*</span></label><textarea id="address" name="address" required autocomplete="street-address"></textarea></div>
+      <div><label for="qualification">Last qualification</label><input type="text" id="qualification" name="qualification" placeholder="e.g. Matric, Inter, BS"></div>
+      <div><label for="timing">Preferred timing</label><input type="text" id="timing" name="timing" placeholder="e.g. Morning / Evening"></div>
+      <div class="full agree"><input type="checkbox" id="agree" name="agree" value="Yes" required><label for="agree" style="font-weight:500;color:var(--muted)">I confirm that the information given above is correct and I agree to follow the rules and fee policy of EEIT. <span class="req">*</span></label></div>
+    </div>
+
+    <div class="office"><strong>For office use only:</strong> Form no. ________ &nbsp; Fee received: ________ &nbsp; Batch: ________ &nbsp; Received by: ________</div>
+
+    <div class="actions">
+      <button type="submit" class="btn" id="submitBtn">Submit admission form</button>
+      <button type="button" class="btn btn-outline" onclick="window.print()">Print / Save as PDF</button>
+    </div>
+    <div class="msg" id="msg" role="status" aria-live="polite"></div>
+  </form>
+</div>
+
+<script>
+/* ================================================================
+   Google Apps Script web app ka URL yahan paste karein
+   (setup ke steps google-apps-script.gs file mein diye hain)
+   ================================================================ */
+var SCRIPT_URL = "PASTE_GOOGLE_APPS_SCRIPT_URL_HERE";
+var WHATSAPP = "923302673007";
+
+var form = document.getElementById('admForm'),
+    msg = document.getElementById('msg'),
+    btn = document.getElementById('submitBtn'),
+    course = document.getElementById('course'),
+    feebox = document.getElementById('feebox');
+
+/* URL se course pehle se select karein, jaise admission-form.html?c=shopify */
+var map = {"graphic-designing":"Graphic Designing","graphic-design":"Graphic Designing","shopify":"Shopify","digital-marketing":"Digital Marketing","office-automation":"Office Automation"};
+var q = new URLSearchParams(location.search).get('c');
+if (q && map[q]) course.value = map[q];
+
+function showFee(){
+  var o = course.options[course.selectedIndex];
+  if (o && o.dataset.fee){ feebox.hidden = false; feebox.textContent = "Course fee (2 months): " + o.dataset.fee; }
+  else { feebox.hidden = true; }
+}
+course.addEventListener('change', showFee); showFee();
+
+function show(type, html){ msg.className = 'msg ' + type; msg.innerHTML = html; msg.scrollIntoView({behavior:'smooth', block:'center'}); }
+
+form.addEventListener('submit', function(e){
+  e.preventDefault();
+  if (form.website.value) return;               /* spam trap */
+  if (!form.checkValidity()){ form.reportValidity(); return; }
+  if (SCRIPT_URL.indexOf('PASTE_') === 0){
+    show('err', 'Form abhi Google Sheet se connect nahi hua. Admin: <code>SCRIPT_URL</code> mein Apps Script ka link paste karein.');
+    return;
+  }
+  btn.disabled = true; btn.textContent = 'Submitting...';
+  var data = new URLSearchParams(new FormData(form));
+  data.delete('website');
+  fetch(SCRIPT_URL, {method:'POST', mode:'no-cors', body:data})
+    .then(function(){
+      var name = encodeURIComponent('Hello EEIT, I have submitted the admission form for ' + course.value + '. Name: ' + form.name.value);
+      show('ok', 'Thank you! Your admission form has been submitted. We will contact you soon. <a href="https://wa.me/' + WHATSAPP + '?text=' + name + '" target="_blank" rel="noopener">Message us on WhatsApp</a>');
+      form.reset(); showFee();
+    })
+    .catch(function(){
+      show('err', 'Form submit nahi ho saka. Please internet check karke dobara try karein, ya <a href="https://wa.me/' + WHATSAPP + '" target="_blank" rel="noopener">WhatsApp par rabta karein</a>.');
+    })
+    .finally(function(){ btn.disabled = false; btn.textContent = 'Submit admission form'; });
+});
+</script>
+</body>
+</html>
